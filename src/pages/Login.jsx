@@ -9,6 +9,11 @@ const Login = () => {
             <label className='font-semibold'>Email</label>
             <input type="text"  placeholder='you@example.com'/>
         </div>
+
+                <div className="password">
+            <label className='font-semibold'>Email</label>
+            <input type="password"  placeholder='Enter your password'/>
+        </div>
       </div>
     </div>
   )
