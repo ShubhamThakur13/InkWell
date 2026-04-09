@@ -20,7 +20,10 @@ const Navbar = () => {
                 <button onClick={()=> {
                     navigate('/login')
                 }} className='px-3 py-1.5 hover:bg-[#008C75] hover:text-white rounded-xl'>Login</button>
-                <button className='px-3 py-1.5 bg-[#0056A4] text-white rounded-xl' >Sign Up</button>
+                <button onClick={()=> {
+                    navigate('/signup')
+                }}
+                 className='px-3 py-1.5 bg-[#0056A4] text-white rounded-xl' >Sign Up</button>
             </div>
         </div>
     </div>
