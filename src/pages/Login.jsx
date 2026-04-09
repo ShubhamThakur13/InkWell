@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom'
+import { MyBlogData } from '../context/BlogContext';
 
 const Login = () => {
      let navigate = useNavigate();
+     let {LoginUser, setLoginUser, Users} = useContext(MyBlogData);
 
-     let handleformsubmit = (data) => {
-      console.log(data);
-      reset()
-     }
+let handleformsubmit = (data) => {
+  if (!Users) return;
+
+  let newlogin = Users.find(
+    (elem) =>
+      elem.email === data.email &&
+      elem.password === data.password
+  );
+
+  if (!newlogin) {
+    alert("Invalid email or password");
+    reset();
+    return;
+  }
+
+  localStorage.setItem('Logged User', JSON.stringify(newlogin));
+  setLoginUser(newlogin);
+  reset();
+  navigate('/');
+};
+
+
    let {register, handleSubmit, reset, formState:{errors, isValid}} = useForm({
     mode: 'onChange'
    });

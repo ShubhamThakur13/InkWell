@@ -13,7 +13,7 @@ const Navbar = () => {
 
         <div className="Auth flex items-center gap-2">
             <div className="mode">
-                {Mode ? <h4 className='text-xl px-2.5 py-1.5 hover:bg-[#008C75] hover:text-white rounded-xl' onClick={()=>setMode(false)}><i class="ri-moon-line"></i></h4> : <h4 className='text-xl' onClick={()=>setMode(true)}><i class="ri-sun-line"></i></h4>}
+                {Mode ? <h4 className='text-xl px-2.5 py-1.5 hover:bg-[#008C75] hover:text-white rounded-xl' onClick={()=>setMode(false)}><i class="ri-moon-line"></i></h4> : <h4 className='text-xl px-2.5 py-1.5 hover:bg-[#008C75] hover:text-white rounded-xl' onClick={()=>setMode(true)}><i class="ri-sun-line"></i></h4>}
             </div>
 
             <div className="buttons flex gap-2">

@@ -4,6 +4,7 @@ import Login from '../pages/Login'
 import MainPageLayout from '../layouts/MainPageLayout'
 import BlogList from '../components/BlogList'
 import SignUp from '../pages/SignUp'
+import Home from '../pages/Home'
 
 const MyApplicationRoutes = () => {
     let myroute = createBrowserRouter([
@@ -13,7 +14,7 @@ const MyApplicationRoutes = () => {
             children:[
                 {
                     path: '',
-                    element: <BlogList/>
+                    element: <Home/>
                 },
 
                 {
