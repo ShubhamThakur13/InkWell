@@ -5,7 +5,7 @@ import { MyBlogData } from '../context/BlogContext';
 
 const Login = () => {
      let navigate = useNavigate();
-     let {LoginUser, setLoginUser, Users} = useContext(MyBlogData);
+     let {LoginUser, setLoginUser,Mode} = useContext(MyBlogData);
 
 let handleformsubmit = (data) => {
   if (!Users) return;
@@ -34,10 +34,10 @@ let handleformsubmit = (data) => {
    });
   return (
     <div className='h-screen flex justify-center items-center'>
-      <div className='flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-white'>
+      <div className={Mode ? `flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-white` : `flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-[#0B0D11]`}>
 
         <div className="top">
-              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#0056A4]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line h-6 w-6 text-primary-foreground" aria-hidden="true"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
+              <div class= {Mode ? `mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#0056A4]` : `mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#008B74]`}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line h-6 w-6 text-primary-foreground" aria-hidden="true"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
               </div>
 
               <h1 className='font-bold text-2xl text-center'>Welcome Back</h1>
@@ -58,9 +58,9 @@ let handleformsubmit = (data) => {
              {errors.password && <p className='text-red-600' >{errors.password.message}</p>}
         </div>
 
-        <button className='bg-[#0056A4] text-white py-1.5 rounded-xl'>Sign In</button>
+        <button className={Mode ? `bg-[#0056A4] text-white py-1.5 rounded-xl` : `bg-[#008B74] text-white py-1.5 rounded-xl`}>Sign In</button>
 
-        <p className='text-center'>Don't have an account? <span onClick={()=>navigate('/signup')} className='cursor-pointer text-[#0056A4]'>Sign up</span></p>
+        <p className='text-center'>Don't have an account? <span onClick={()=>navigate('/signup')} className={Mode ? `cursor-pointer text-[#0056A4]` : `cursor-pointer text-[#008B74]`}>Sign up</span></p>
         </form>
 
 

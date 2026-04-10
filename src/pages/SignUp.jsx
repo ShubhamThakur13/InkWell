@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { MyBlogData } from '../context/BlogContext';
 
 const SignUp = () => {
-  let {Users, setUsers}= useContext(MyBlogData);
+  let {Users, setUsers, Mode}= useContext(MyBlogData);
    let navigate = useNavigate();
    
    let {register, handleSubmit, reset, watch ,formState:{errors, isValid}}= useForm({
@@ -21,11 +21,11 @@ const SignUp = () => {
    }
    
   return (
-    <div className=' flex justify-center items-center'>
-      <div className='flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-white mt-25'>
+    <div className=' flex justify-center items-center p-3'>
+      <div className={Mode ? `flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-white mt-25` : `flex flex-col shadow rounded-xl p-3 w-[450px] gap-3 bg-[#0B0D11] mt-25`}>
 
         <div className="top">
-              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#0056A4]"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line h-6 w-6 text-primary-foreground" aria-hidden="true"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
+              <div class={Mode ?`mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#0056A4]`: `mx-auto mb-4 flex h-12 w-12 items-center justify-center  text-white rounded-full bg-[#008B74]` }><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pen-line h-6 w-6 text-primary-foreground" aria-hidden="true"><path d="M13 21h8"></path><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path></svg>
               </div>
 
               <h1 className='font-bold text-2xl text-center'>Create an Account</h1>
@@ -77,10 +77,16 @@ const SignUp = () => {
             defaultChecked
           />
 
-          <div className="w-50 p-4 rounded-xl border bg-gray-100
+          <div className={Mode ? `w-50 p-4 rounded-xl border bg-gray-100
             peer-checked:bg-blue-100
             peer-checked:border-blue-500
-            transition-all">
+            transition-all` : `w-50 p-4 rounded-xl border bg-gray-900
+           peer-checked:bg-[#008b7451]
+            peer-checked:border-[#008B74]
+            transition-all`}
+            
+            
+            >
             
             <h3 className="font-semibold">Reader</h3>
             <p className="text-sm text-gray-500">Read articles</p>
@@ -96,10 +102,13 @@ const SignUp = () => {
             className="hidden peer"
           />
 
-          <div className="w-50 p-4 rounded-xl border bg-gray-100
+          <div className={Mode ? `w-50 p-4 rounded-xl border bg-gray-100
             peer-checked:bg-blue-100
             peer-checked:border-blue-500
-            transition-all">
+            transition-all` : `w-50 p-4 rounded-xl border bg-gray-900
+            peer-checked:bg-[#008b7451]
+          peer-checked:border-[#008B74]
+            transition-all` }>
             
             <h3 className="font-semibold">Author</h3>
             <p className="text-sm text-gray-500">Write & publish</p>
@@ -109,9 +118,9 @@ const SignUp = () => {
       </div>
     </div>
 
-        <button className='bg-[#0056A4] text-white py-1.5 rounded-xl'>Sign In</button>
+        <button className={Mode ? `bg-[#0056A4] text-white py-1.5 rounded-xl` : `bg-[#008B74] text-white py-1.5 rounded-xl`}>Sign In</button>
 
-        <p className='text-center'>Don't have an account? <span onClick={()=>navigate('/login')} className='text-[#0056A4] cursor-pointer'>Sign In</span></p>
+        <p className='text-center'>Don't have an account? <span onClick={()=>navigate('/login')} className={Mode ? `cursor-pointer text-[#0056A4]` : `cursor-pointer text-[#008B74]`} >Sign In</span></p>
         </form>
 
 
