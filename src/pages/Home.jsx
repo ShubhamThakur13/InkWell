@@ -5,7 +5,7 @@ import { MyBlogData } from '../context/BlogContext';
 const Home = () => {
     let { Users, Mode } = useContext(MyBlogData);
   return (
-    <div className='  flex flex-col items-center gap-10 p-3'>
+    <div className='h-screen  flex flex-col items-center gap-10 p-3 overflow-auto'>
       <div className="top w-[35%] mt-[8%] flex flex-col gap-5">
         <h1 className='text-5xl font-bold text-center'>Welcome to <span className={Mode ? `text-[#0056A4]`: `text-[#008C75]`}>Inkwell</span></h1>
         <p className=' text-xl text-center'>Discover thoughtful articles on technologu, programming, and software engineering from passionate writers.</p>
