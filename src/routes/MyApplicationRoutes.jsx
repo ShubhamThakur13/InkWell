@@ -5,6 +5,8 @@ import MainPageLayout from '../layouts/MainPageLayout'
 import BlogList from '../components/BlogList'
 import SignUp from '../pages/SignUp'
 import Home from '../pages/Home'
+import Dashboard from '../pages/Dashboard'
+import MainDashboard from '../layouts/MainDashboard'
 
 const MyApplicationRoutes = () => {
     let myroute = createBrowserRouter([
@@ -25,6 +27,17 @@ const MyApplicationRoutes = () => {
                 {
                     path:'/signup',
                     element: <SignUp />
+                }
+            ]
+        },
+
+        {
+            path: '/dashboard',
+            element:<MainDashboard/>,
+            children:[
+                {
+                    path: '',
+                    element:<Dashboard/>
                 }
             ]
         }

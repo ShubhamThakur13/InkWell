@@ -18,6 +18,13 @@ const SignUp = () => {
     setUsers(newuser);
     localStorage.setItem('Registered Users',JSON.stringify(newuser))
     reset()
+
+    if(data.accountType === 'Author'){
+      navigate('/dashborad');
+    }
+    else{
+      navigate('/login');
+    }
    }
    
   return (
